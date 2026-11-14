@@ -1,0 +1,39 @@
+{
+  "name": "bot-be-serious",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Bot, Be Serious! — a meme-powered CAPTCHA and browser-agent benchmark.",
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,yellow \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "start": "npm run start -w backend",
+    "typecheck": "tsc -p backend --noEmit && tsc -p frontend --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "harness": "tsx tests/agent-harness/run.ts",
+    "seed:demo": "tsx --experimental-sqlite --no-warnings=ExperimentalWarning backend/src/analytics/seed-cli.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.0.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/supertest": "^6.0.3",
+    "@vitejs/plugin-react": "^4.5.2",
+    "concurrently": "^9.1.2",
+    "ffmpeg-static": "^5.3.0",
+    "jsdom": "^26.1.0",
+    "pngjs": "^7.0.0",
+    "supertest": "^7.1.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

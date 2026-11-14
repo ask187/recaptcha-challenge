@@ -1,0 +1,19 @@
+{
+  "name": "@bbs/backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --experimental-sqlite --no-warnings=ExperimentalWarning src/server.ts",
+    "start": "tsx --experimental-sqlite --no-warnings=ExperimentalWarning src/server.ts"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  }
+}
